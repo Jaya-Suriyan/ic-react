@@ -62,6 +62,7 @@ const onChange = (pagination, filters, sorter, extra) => {
 };
 
 const Product = () => {
+  const apiURL = process.env.API_URL || "http://127.0.0.1:5000";
   const router = useRouter();
   const [data, setData] = useState([]);
   const [tableData, setTableData] = useState([]);
@@ -69,7 +70,7 @@ const Product = () => {
 
   const fetchData = async (token) => {
     try {
-      const response = await axios.get("http://127.0.0.1:5000/product", {
+      const response = await axios.get(`${apiURL}/product`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (response.status === 200) {

@@ -11,6 +11,7 @@ const { useBreakpoint } = Grid;
 const { Text, Title } = Typography;
 
 export default function Login() {
+  const apiURL = process.env.API_URL || "http://127.0.0.1:5000";
   const router = useRouter();
   const screens = useBreakpoint();
   const [errorMsg, setErrorMsg] = useState(null);
@@ -18,10 +19,7 @@ export default function Login() {
     console.log("Received values of form: ", values);
     setErrorMsg(null);
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:5000/user/login",
-        values
-      );
+      const response = await axios.post(`${apiURL}/user/login`, values);
       if (response.status.toString().startsWith("2")) {
         const token = response?.data?.token;
         if (token) {
