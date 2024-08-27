@@ -62,7 +62,7 @@ const onChange = (pagination, filters, sorter, extra) => {
 };
 
 const Product = () => {
-  const apiURL = process.env.API_URL || "http://127.0.0.1:5000";
+  const apiURL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000";
   const router = useRouter();
   const [data, setData] = useState([]);
   const [tableData, setTableData] = useState([]);

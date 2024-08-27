@@ -11,7 +11,7 @@ const { useBreakpoint } = Grid;
 const { Text, Title } = Typography;
 
 export default function Login() {
-  const apiURL = process.env.API_URL || "http://127.0.0.1:5000";
+  const apiURL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000";
   const router = useRouter();
   const screens = useBreakpoint();
   const [errorMsg, setErrorMsg] = useState(null);
